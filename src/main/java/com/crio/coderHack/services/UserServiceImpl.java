@@ -2,39 +2,46 @@ package com.crio.coderHack.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.crio.coderHack.dto.User;
 import com.crio.coderHack.exceptions.UserNotFoundException;
+import com.crio.coderHack.repositoryServices.UserRepositoryService;
 
+@Service
 public class UserServiceImpl implements UserService{
+
+    @Autowired
+    private UserRepositoryService userRepositoryService;
 
     @Override
     public User registerUser(String username) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'registerUser'");
+        User user = userRepositoryService.createUser(username);
+        return user;
     }
 
     @Override
     public User updateScore(String userId, int score) throws UserNotFoundException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateScore'");
+        User user = userRepositoryService.updateScore(userId, score);
+        return user;
     }
 
     @Override
     public User findUser(String userId) throws UserNotFoundException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findUser'");
+        User user = userRepositoryService.findUser(userId);
+        return user;
     }
 
     @Override
     public List<User> findAllUsers() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAllUsers'");
+        List<User> users = userRepositoryService.findAllUsers();
+        return users;
     }
 
     @Override
     public void deregisterUser(String userId) throws UserNotFoundException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deregisterUser'");
+        userRepositoryService.deleteUser(userId);
     }
 
     
