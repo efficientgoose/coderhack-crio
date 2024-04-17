@@ -2,9 +2,12 @@ package com.crio.coderHack.controller;
 
 import java.util.List;
 
+import org.hibernate.validator.constraints.Range;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,8 +21,10 @@ import com.crio.coderHack.exceptions.UserNotFoundException;
 import com.crio.coderHack.exchanges.RegisterUserRequest;
 import com.crio.coderHack.services.UserService;
 
+import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
 
+@Validated
 @RestController
 public class UserController {
     public static final String USER_API_ENDPOINT = "/users";
@@ -28,13 +33,13 @@ public class UserController {
     private UserService userService;
 
     @GetMapping(USER_API_ENDPOINT)
-    public ResponseEntity<List<User>> findAllUsers() {
+    public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.findAllUsers();
         return ResponseEntity.ok().body(users);
     }
 
     @GetMapping(USER_API_ENDPOINT + "/{userId}")
-    public ResponseEntity<User> findUser(@PathVariable String userId) {
+    public ResponseEntity<User> getUser(@PathVariable String userId) {
         User user;
 
         try {
@@ -56,7 +61,7 @@ public class UserController {
     }
 
     @PutMapping(USER_API_ENDPOINT + "/{userId}")
-    public ResponseEntity<User> updateScore(@PathVariable String userId, @RequestParam int score) {
+    public ResponseEntity<User> updateScore(@PathVariable String userId, @Range(min = 0, max = 100) @RequestParam int score) {
         User user;
 
         try {
@@ -79,5 +84,10 @@ public class UserController {
 
         return ResponseEntity.ok().build();
     }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<String> handleConstraintViolationException(ConstraintViolationException ex) {
+        return ResponseEntity.badRequest().body("Bad Request");
+  }
 
 }
