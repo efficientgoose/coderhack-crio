@@ -38,7 +38,7 @@ A RESTful API service built with Spring Boot to manage the leaderboard for a cod
 3. **Build and run the application using Gradle:**
 
     ```bash
-    ./gradlew bootRun
+    ./gradlew bootrun
     ```
 
 ## API Endpoints
