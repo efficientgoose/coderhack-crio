@@ -1,4 +1,4 @@
-package com.crio.coderHack.dto;
+package com.crio.coderHack.DTOs;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.crio.coderHack.dto.Badge;
+import com.crio.coderHack.DTOs.Badge;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

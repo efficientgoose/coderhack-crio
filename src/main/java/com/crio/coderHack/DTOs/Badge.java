@@ -1,4 +1,4 @@
-package com.crio.coderHack.dto;
+package com.crio.coderHack.DTOs;
 
 public enum Badge {
     CODE_NINJA, 

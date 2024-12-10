@@ -13,34 +13,6 @@ A RESTful API service built with Spring Boot to manage the leaderboard for a cod
 - **User Retrieval**: Retrieve a list of all registered users.
 - **User Deletion**: Deregister a specific user from the contest.
 
-## Installation and Usage
-
-### Prerequisites
-
-- Java 17 or higher
-- MongoDB
-- Postman for API testing
-
-### Getting Started
-
-1. **Clone the repository:**
-
-    ```bash
-    git clone https://github.com/pgprajwal/CoderHack.git
-    ```
-
-2. **Navigate to the project directory:**
-
-    ```bash
-    cd CoderHack
-    ```
-
-3. **Build and run the application using Gradle:**
-
-    ```bash
-    ./gradlew bootrun
-    ```
-
 ## API Endpoints
 
 - **GET /users** - Retrieve a list of all registered users
@@ -51,4 +23,4 @@ A RESTful API service built with Spring Boot to manage the leaderboard for a cod
 
 ## API Testing
 
-For testing the API endpoints, you can use the following [Postman Collection](https://www.postman.com/pgprajwal/workspace/api-repository/collection/34348286-160e56c8-d6fe-4195-b63b-e1857bf5bb6d?action=share&creator=34348286)
+For testing the API endpoints, you can use the following [Postman Collection](https://www.postman.com/lunar-module-architect-99006294/ajinkya-s-workspace/collection/cf4cnzy/coderhacker-apis?action=share&creator=28399701)

@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.crio.coderHack.dto.User;
+import com.crio.coderHack.DTOs.User;
 import com.crio.coderHack.exceptions.UserNotFoundException;
 import com.crio.coderHack.repositoryServices.UserRepositoryService;
 

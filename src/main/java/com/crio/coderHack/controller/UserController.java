@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.crio.coderHack.dto.User;
+import com.crio.coderHack.DTOs.User;
 import com.crio.coderHack.exceptions.UserNotFoundException;
 import com.crio.coderHack.exchanges.RegisterUserRequest;
 import com.crio.coderHack.services.UserService;
@@ -27,18 +27,18 @@ import jakarta.validation.Valid;
 @Validated
 @RestController
 public class UserController {
-    public static final String USER_API_ENDPOINT = "/users";
+    public static final String USER_ENDPOINT = "/users";
 
     @Autowired
     private UserService userService;
 
-    @GetMapping(USER_API_ENDPOINT)
+    @GetMapping(USER_ENDPOINT)
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.findAllUsers();
         return ResponseEntity.ok().body(users);
     }
 
-    @GetMapping(USER_API_ENDPOINT + "/{userId}")
+    @GetMapping(USER_ENDPOINT + "/{userId}")
     public ResponseEntity<User> getUser(@PathVariable String userId) {
         User user;
 
@@ -51,7 +51,7 @@ public class UserController {
         return ResponseEntity.ok().body(user);
     }
 
-    @PostMapping(USER_API_ENDPOINT) 
+    @PostMapping(USER_ENDPOINT) 
     public ResponseEntity<User> registerUser(@Valid @RequestBody RegisterUserRequest registerUserRequest) {
         String username = registerUserRequest.getUsername();
 
@@ -60,7 +60,7 @@ public class UserController {
         return ResponseEntity.ok().body(user);
     }
 
-    @PutMapping(USER_API_ENDPOINT + "/{userId}")
+    @PutMapping(USER_ENDPOINT + "/{userId}")
     public ResponseEntity<User> updateScore(@PathVariable String userId, @Range(min = 0, max = 100) @RequestParam int score) {
         User user;
 
@@ -73,7 +73,7 @@ public class UserController {
         return ResponseEntity.ok().body(user);
     }
 
-    @DeleteMapping(USER_API_ENDPOINT + "/{userId}")
+    @DeleteMapping(USER_ENDPOINT + "/{userId}")
     public ResponseEntity<Void> deregisterUser(@PathVariable String userId) {
         
         try {

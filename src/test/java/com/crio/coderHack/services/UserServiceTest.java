@@ -16,7 +16,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.crio.coderHack.dto.User;
+import com.crio.coderHack.DTOs.User;
 import com.crio.coderHack.exceptions.UserNotFoundException;
 import com.crio.coderHack.repositoryServices.UserRepositoryService;
 

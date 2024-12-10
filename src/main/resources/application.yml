@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: CoderHack
+
+spring.data.mongodb:
+  uri: mongodb://localhost:27017/coderhack
+  database: coderhack

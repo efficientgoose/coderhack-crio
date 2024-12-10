@@ -2,7 +2,7 @@ package com.crio.coderHack.services;
 
 import java.util.List;
 
-import com.crio.coderHack.dto.User;
+import com.crio.coderHack.DTOs.User;
 import com.crio.coderHack.exceptions.UserNotFoundException;
 
 public interface UserService {
